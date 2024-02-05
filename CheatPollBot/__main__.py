@@ -1,0 +1,60 @@
+import asyncio
+import importlib
+import os
+import pickle
+import traceback
+from logging import getLogger
+
+from pyrogram import __version__, idle
+
+from CheatPollBot import CHANNEL_ID, BOT_USERNAME, HELPABLE, app
+from CheatPollBot.modules import ALL_MODULES
+
+LOGGER = getLogger(__name__)
+loop = asyncio.get_event_loop()
+
+
+# Run Bot
+async def start_bot():
+    for module in ALL_MODULES:
+        imported_module = importlib.import_module(f"CheatPollBot.modules.{module}")
+        if hasattr(imported_module, "__mod__") and imported_module.__mod__:
+            imported_module.__mod__ = imported_module.__mod__
+            if hasattr(imported_module, "__help__") and imported_module.__help__:
+                HELPABLE[imported_module.__mod__.lower()] = imported_module
+    bot_modules = ""
+    j = 1
+    for i in ALL_MODULES:
+        if j == 4:
+            bot_modules += "| {:<15}|\n".format(i)
+            j = 0
+        else:
+            bot_modules += "| {:<15}".format(i)
+        j += 1
+    
+    LOGGER.info(bot_modules)
+    LOGGER.info("[INFO]: BOT STARTED: @%s!", BOT_USERNAME)
+
+    try:
+        LOGGER.info("[INFO]: START MESSAGE")
+        db_channel = await app.get_chat(CHANNEL_ID)
+        test = await app.send_message(chat_id = db_channel.id, text = "Test Message")
+        await test.delete()
+    except Exception as e:
+        LOGGER.error(str(e))
+    await idle()
+
+
+if __name__ == "__main__":
+    try:
+        loop.run_until_complete(start_bot())
+    except KeyboardInterrupt:
+        pass
+    except Exception:
+        err = traceback.format_exc()
+        LOGGER.info(err)
+    finally:
+        loop.stop()
+        LOGGER.info(
+            "------------------------ Stopped Services ------------------------"
+        )
