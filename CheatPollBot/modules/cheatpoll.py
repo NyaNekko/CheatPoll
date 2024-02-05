@@ -8,7 +8,7 @@ from CheatPollBot import app, user
 async def pollCheat(_, message):
     await message.reply("Due To Some Reasons The Bot Only Works In PM.\n\n**Forward The Poll To Bots PM 😊**")
 
-@app.on_message(filters.private)
+@app.on_message(filters.private, group=11)
 async def pollCheatPm(_, message):
    if message.poll:
       a = await message.forward("ewaifusupport")
