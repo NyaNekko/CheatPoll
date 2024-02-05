@@ -37,9 +37,7 @@ async def start_bot():
 
     try:
         LOGGER.info("[INFO]: START MESSAGE")
-        db_channel = await app.get_chat(CHANNEL_ID)
-        test = await app.send_message(chat_id = db_channel.id, text = "Test Message")
-        await test.delete()
+        await app.send_message("EpiXeaSupport", text = f"{BOT_USERNAME} STARTED")
     except Exception as e:
         LOGGER.error(str(e))
     await idle()
