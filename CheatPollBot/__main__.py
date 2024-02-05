@@ -37,7 +37,7 @@ async def start_bot():
 
     try:
         LOGGER.info("[INFO]: START MESSAGE")
-        await app.send_message("EpiXeaSupport", text = f"{BOT_USERNAME} STARTED")
+        await app.send_message("EpiXeaSupport", text = f"**@{BOT_USERNAME} STARTED**")
     except Exception as e:
         LOGGER.error(str(e))
     await idle()
