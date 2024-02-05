@@ -11,7 +11,8 @@ from CheatPollBot.Config import (
     BOT_TOKEN,
     TIMEZONE,
     DB_URI,
-    SESSION
+    SESSION,
+    OWNER
 )
 
 #LOGGER SETUP
