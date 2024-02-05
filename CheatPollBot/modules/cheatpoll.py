@@ -5,7 +5,6 @@ from pyrogram.errors import RevoteNotAllowed
 from CheatPollBot import app, user
 
 @app.on_message(filters.command("poll"), group=10)
-@user.on_message(filters.command("poll"))
 async def pollCheat(_, message):
     if message.reply_to_message.poll.type == PollType.QUIZ:
         pollID = message.reply_to_message.id
