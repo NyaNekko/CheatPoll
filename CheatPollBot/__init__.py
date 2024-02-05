@@ -11,9 +11,6 @@ from CheatPollBot.Config import (
     BOT_TOKEN,
     TIMEZONE,
     DB_URI,
-    CHANNEL_ID,
-    DISABLE_CHANNEL_BUTTON,
-    CUSTOM_CAPTION,
     SESSION
 )
 
