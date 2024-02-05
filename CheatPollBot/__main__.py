@@ -7,7 +7,7 @@ from logging import getLogger
 
 from pyrogram import __version__, idle
 
-from CheatPollBot import CHANNEL_ID, BOT_USERNAME, HELPABLE, app
+from CheatPollBot import BOT_USERNAME, HELPABLE, app
 from CheatPollBot.modules import ALL_MODULES
 
 LOGGER = getLogger(__name__)
