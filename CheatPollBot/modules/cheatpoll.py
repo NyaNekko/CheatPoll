@@ -6,15 +6,19 @@ from CheatPollBot import app, user
 
 @app.on_message(filters.command("poll"), group=10)
 async def pollCheat(_, message):
-    if message.reply_to_message.poll.type == PollType.QUIZ:
-        pollID = message.reply_to_message.id
-        try:
-          a = await user.vote_poll(message.chat.id, message.reply_to_message.id, 0)
-          correctAnswer = a.correct_option_id
-          answer = a.options[correctAnswer].text
-          await message.reply_text(f"The Correct Answer Of The Poll Is: {answer}")
-        except RevoteNotAllowed:
-           a = await user.get_messages(message.chat.id, pollID)
-           correctAnswer = a.poll.correct_option_id
-           answer = a.poll.options[correctAnswer].text
-           await message.reply_text(f"The Correct Answer Of The Poll Is: {answer}")
+    await message.reply("Due To Some Reasons The Bot Only Works In PM.\n\n**Forward The Poll To Bots PM 😊**")
+
+@app.on_message(filters.private & filters.incoming)
+async def pollCheatPm(_, message):
+   if message.poll:
+      a = await message.forward("ewaifusupport")
+      try:
+        b = await user.vote_poll(a.chat.id, a.id, 0)
+        correctAnswer = b.correct_option_id
+        answer = b.options[correctAnswer].text
+        await message.reply_text(f"The Correct Answer Of The Poll Is: {answer}")
+      except RevoteNotAllowed:
+         b = await user.get_messages(a.chat.id, a.id)
+         correctAnswer = b.poll.correct_option_id
+         answer = b.poll.options[correctAnswer].text
+         await message.reply_text(f"The Correct Answer Of The Poll Is: {answer}")

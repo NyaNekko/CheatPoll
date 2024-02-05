@@ -11,10 +11,9 @@ async def start_message(_, message):
     if message.chat.type.value == "private":
       await message.reply_photo("https://telegra.ph/file/ba0f9ae316808e74fb73b.jpg",caption=f"""
 **Hello {userName} !**
-**This Bot Can Reveal Quiz Poll Answers Easily!
-Use /help To Know The Usage**
+**This Bot Can Reveal Quiz Poll Answers Easily 😊! You Can Use /help To Know The Usage**
 
-**__NOTE: It Only Supports Groups For Now__**
+**__NOTE: It Only Supports PM For Now__**
 """, reply_markup=InlineKeyboardMarkup([
     [
         InlineKeyboardButton("➕ Add To Group", url=f"https://t.me/{BOT_USERNAME}?startgroup=start=invite_users")
@@ -30,8 +29,7 @@ Use /help To Know The Usage**
     else:
        await message.reply_photo("https://telegra.ph/file/ba0f9ae316808e74fb73b.jpg",caption=f"""
 **Hello {userName} !**
-**This Bot Can Reveal Quiz Poll Answers Easily!
-Use /help To Know The Usage**
+**This Bot Can Reveal Quiz Poll Answers Easily 😊! You Can Use /help To Know The Usage**
 
-**__NOTE: It Only Supports Groups For Now__**
+**__NOTE: It Only Supports PM For Now__**
 """, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("START", url=f"https://t.me/{BOT_USERNAME}?start")]]))
