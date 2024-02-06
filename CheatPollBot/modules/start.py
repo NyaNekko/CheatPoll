@@ -30,6 +30,15 @@ async def start_message(_, message):
        await message.reply_photo("https://telegra.ph/file/ba0f9ae316808e74fb73b.jpg",caption=f"""
 **Hello {userName} !**
 **This Bot Can Reveal Quiz Poll Answers Easily 😊! You Can Use /help To Know The Usage**
-
-**__NOTE: It Only Supports PM For Now__**
 """, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("START", url=f"https://t.me/{BOT_USERNAME}?start")]]))
+       
+
+@app.on_message(filters.command('help'))
+async def help_message(_, message):
+   await message.reply("""
+**➕ Help Section:**
+**└** If You Want Quiz Poll Answer In Group, Reply /poll Command On Quiz.
+**└** If You Want Quiz Poll Answer In Your PM, Just Forward The Poll To Bots PM
+                       
+**IF YOU FACE ANY DIFFICULTIES OR ISSUE REGARDING BOT YOU CAN CONTACT ADMINS OF BOT @EpixeaSupport**
+""")
