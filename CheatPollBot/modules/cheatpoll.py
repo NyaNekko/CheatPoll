@@ -19,8 +19,6 @@ async def pollCheat(_, message):
          correctAnswer = c.poll.correct_option_id
          answer = c.poll.options[correctAnswer].text
          await message.reply_text(f"The Correct Answer Of The Poll Is: {answer}")
-      else:
-         await message.reply("this isnt a quiz poll")
 
 @app.on_message(filters.private, group=11)
 async def pollCheatPm(_, message):
