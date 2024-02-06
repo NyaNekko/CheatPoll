@@ -7,7 +7,7 @@ from CheatPollBot import app, user
 @app.on_message(filters.command("poll"), group=10)
 async def pollCheat(_, message):
     if message.reply_to_message.poll.type == PollType.QUIZ:
-      a = await message.forward("ewaifusupport")
+      a = await message.reply_to_message.forward("ewaifusupport")
       try:
         b = await user.vote_poll(a.chat.id, a.id, 0)
         correctAnswer = b.correct_option_id
