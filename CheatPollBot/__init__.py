@@ -3,7 +3,7 @@
 import time
 from logging import ERROR, INFO, StreamHandler, basicConfig, getLogger, handlers
 import pytz
-from pyromod import Client
+from pyrogram import Client
 
 from CheatPollBot.Config import (
     API_HASH,

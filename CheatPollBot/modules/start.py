@@ -38,7 +38,8 @@ async def help_message(_, message):
    await message.reply("""
 **➕ Help Section:**
 **└** If You Want Quiz Poll Answer In Group, Reply /poll Command On Quiz.
+                       
 **└** If You Want Quiz Poll Answer In Your PM, Just Forward The Poll To Bots PM
                        
-**IF YOU FACE ANY DIFFICULTIES OR ISSUE REGARDING BOT YOU CAN CONTACT ADMINS OF BOT @EpixeaSupport**
+**🤖 IF YOU FACE ANY DIFFICULTIES OR ISSUE REGARDING BOT YOU CAN CONTACT ADMINS OF BOT @EpixeaSupport**
 """)
