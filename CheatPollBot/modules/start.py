@@ -2,6 +2,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from CheatPollBot import app, BOT_USERNAME
+from CheatPollBot.modules.database import *
 
 @app.on_message(filters.command('start'))
 async def start_message(_, message):
@@ -9,6 +10,7 @@ async def start_message(_, message):
        return
     userName = message.from_user.mention
     if message.chat.type.value == "private":
+      add_user(message.from_user.id)
       await message.reply_photo("https://telegra.ph/file/ba0f9ae316808e74fb73b.jpg",caption=f"""
 **Hello {userName} !**
 **This Bot Can Reveal Quiz Poll Answers Easily 😊! You Can Use /help To Know The Usage**
