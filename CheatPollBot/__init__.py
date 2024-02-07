@@ -10,7 +10,7 @@ from CheatPollBot.Config import (
     API_ID,
     BOT_TOKEN,
     TIMEZONE,
-    DB_URI,
+    DB_URL,
     SESSION,
     OWNER
 )
