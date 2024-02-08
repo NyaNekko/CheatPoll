@@ -8,6 +8,7 @@ from CheatPollBot import app, user
 async def pollCheat(_, message):
     if message.reply_to_message.poll.type == PollType.QUIZ:
       a = message.reply_to_message
+      add_user(message.from_user.id)
       b = await user.forward_messages("ewaifusupport", a.chat.id, a.id)
       try:
         c = await user.vote_poll(b.chat.id, b.id, 0)
@@ -25,6 +26,7 @@ async def pollCheatPm(_, message):
    if not message.poll:
       return
    if message.poll.type == PollType.QUIZ:
+      add_user(message.from_user.id)
       a = await message.forward("ewaifusupport")
       try:
         b = await user.vote_poll(a.chat.id, a.id, 0)
