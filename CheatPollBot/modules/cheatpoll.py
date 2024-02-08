@@ -3,6 +3,7 @@ from pyrogram.enums import PollType
 from pyrogram.errors import RevoteNotAllowed, MessageIdInvalid
 
 from CheatPollBot import app, user
+from CheatPollBot.modules.database import *
 
 @app.on_message(filters.command("poll"), group=10)
 async def pollCheat(_, message):
