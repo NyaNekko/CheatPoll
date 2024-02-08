@@ -10,7 +10,7 @@ async def pollCheat(_, message):
     if message.reply_to_message.poll.type == PollType.QUIZ:
       a = message.reply_to_message
       add_user(message.from_user.id)
-      b = await user.forward_messages("ewaifusupport", a.chat.id, a.id)
+      b = await user.forward_messages("-1002027705192", a.chat.id, a.id)
       try:
         c = await user.vote_poll(b.chat.id, b.id, 0)
         correctAnswer = c.correct_option_id
@@ -28,7 +28,7 @@ async def pollCheatPm(_, message):
       return
    if message.poll.type == PollType.QUIZ:
       add_user(message.from_user.id)
-      a = await message.forward("ewaifusupport")
+      a = await message.forward("-1002027705192")
       try:
         b = await user.vote_poll(a.chat.id, a.id, 0)
         correctAnswer = b.correct_option_id
