@@ -40,7 +40,7 @@ TIME_ZONE = pytz.timezone(TIMEZONE)
 
 # SET UP THE BOT CLIENT
 app = Client(
-    "f2link",
+    "cheatpoll",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
@@ -48,7 +48,7 @@ app = Client(
 
 # SET UP THE BOT CLIENT
 user = Client(
-    "userf",
+    "userclient",
     api_id=API_ID,
     api_hash=API_HASH,
     session_string = SESSION
